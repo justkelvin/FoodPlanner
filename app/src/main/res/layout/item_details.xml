@@ -1,0 +1,154 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--
+                <ImageView
+                    android:id="@+id/iv_details_food"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/start_background"
+                    android:contentDescription="@string/content_description_pancakes" />
+                -->
+
+
+
+          <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_details_food"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/RoundCorner"
+            tools:src="@drawable/start_background"
+            android:contentDescription="@string/content_description_pancakes"/>
+
+
+
+           <View
+               android:id="@+id/black_background"
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:layout_marginTop="8dp"
+               android:layout_marginEnd="8dp"
+               android:visibility="gone"
+               android:background="@drawable/black_transparent_background"
+               app:layout_constraintEnd_toEndOf="@id/iv_details_food"
+               app:layout_constraintTop_toTopOf="@id/iv_details_food" />
+
+           <CheckBox
+               android:id="@+id/btn_favorite"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:button="@drawable/sl_favourite_48dp"
+               android:layout_marginTop="2dp"
+               android:visibility="gone"
+               app:buttonTint="@android:color/white"
+               app:layout_constraintBottom_toBottomOf="@+id/black_background"
+               app:layout_constraintEnd_toEndOf="@+id/black_background"
+               app:layout_constraintStart_toStartOf="@+id/black_background"
+               app:layout_constraintTop_toTopOf="@+id/black_background" />
+
+
+        <TextView
+            android:id="@+id/tv_details_name_of_meal"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/itim_regular"
+            android:maxLines="2"
+            android:text="@string/name_of_meal"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_details_food" />
+
+        <TextView
+            android:id="@+id/tv_details_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:text="@string/country"
+            android:fontFamily="@font/itim_regular"
+
+            android:textSize="24sp"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/tv_details_name_of_meal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_details_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:fontFamily="@font/itim_regular"
+
+            android:text="@string/instructions"
+            android:textSize="18sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/video"
+        />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/rv_ingredients"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_add_to_calender"
+            />
+
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:autoPlay="false"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_ingredients" />
+
+        <Button
+            android:id="@+id/btn_add_to_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:drawableStart="@drawable/ic_calender"
+            android:text=" Add to Calendar"
+            android:fontFamily="@font/itim_regular"
+
+            android:textAllCaps="false"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_details_country" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
